@@ -14,13 +14,13 @@ brew install --cask brave-browser
 brew install --cask slack
 brew install --cask cron
 brew install --cask figma
-brew install --cask visual-studio-code
-brew install --cask postman
 brew install --cask alfred
 brew install --cask caffeine
 
 # dev
-brew install --cask sublime-text
+brew install --cask visual-studio-code
+brew install --cask postman
+brew install --cask beekeeper-studio
 brew install --cask imageoptim
 
 
