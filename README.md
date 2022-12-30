@@ -96,7 +96,7 @@ config checkout
 config config status.showUntrackedFiles no
 ```
 
-#### installing & using
+### installing & using
 * `cd ~/`
 * run `setup-a-new-machine.sh`
 * git config needs attention, read the notes.
