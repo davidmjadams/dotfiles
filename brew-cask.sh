@@ -17,6 +17,7 @@ brew install --cask figma
 brew install --cask visual-studio-code
 brew install --cask postman
 brew install --cask alfred
+brew install --cask caffeine
 
 # dev
 brew install --cask sublime-text
