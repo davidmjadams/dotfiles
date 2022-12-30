@@ -78,7 +78,7 @@ config push
 Again as a shortcut not to have to remember all these steps on any new machine you want to setup, you can create a simple script, store it as Bitbucket snippet like I did, create a short url for it and call it like this:
 
 ```
-curl -Lks http://bit.do/cfg-install | /bin/bash
+curl -Ls https://gist.githubusercontent.com/davidmjadams/eff9fa72a79f1fa7b83041b815fe1e2f/raw/82374aaf3bc5fb39c34551dae95b1a74e1f7cd82/dot%2520files-setup | /bin/bash
 ```
 For completeness this is the script:
 
