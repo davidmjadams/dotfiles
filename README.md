@@ -4,6 +4,9 @@ Mostly just [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) with 
 
 ## Setup
 
+* Login to iCloud
+* Setup git
+* Restore [makckup](https://github.com/lra/mackup)
 ### Setup git on the new machine
 ...
 
