@@ -8,7 +8,8 @@ Mostly just [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) with 
 * Setup git
 * Restore [makckup](https://github.com/lra/mackup)
 ### Setup git on the new machine
-...
+* [Generate a new ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* [Add the key to github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 ### Cloning the repo
 Install your dotfiles onto a new system (or migrate to this setup), [original instructions here](https://www.atlassian.com/git/tutorials/dotfiles)
@@ -26,7 +27,7 @@ echo ".cfg" >> .gitignore
 
 Now clone your dotfiles into a bare repository in a "dot" folder of your $HOME:
 ```
-git clone --bare <git-repo-url> $HOME/.cfg
+git clone --bare git@github.com:davidmjadams/dotfiles.git $HOME/.cfg
 ```
 
 Define the alias in the current shell scope:
@@ -75,7 +76,7 @@ config add .bashrc
 config commit -m "Add bashrc"
 config push
 ```
-Again as a shortcut not to have to remember all these steps on any new machine you want to setup, you can create a simple script, store it as Bitbucket snippet like I did, create a short url for it and call it like this:
+Again as a shortcut not to have to remember all these steps on any new machine you want to setup, you can create a simple script, store it a gist and call it like this:
 
 ```
 curl -Ls https://gist.githubusercontent.com/davidmjadams/eff9fa72a79f1fa7b83041b815fe1e2f/raw/82374aaf3bc5fb39c34551dae95b1a74e1f7cd82/dot%2520files-setup | /bin/bash
@@ -83,7 +84,7 @@ curl -Ls https://gist.githubusercontent.com/davidmjadams/eff9fa72a79f1fa7b83041b
 For completeness this is the script:
 
 ```
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
+git clone --bare git@github.com:davidmjadams/dotfiles.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
