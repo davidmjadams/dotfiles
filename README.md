@@ -11,7 +11,7 @@ Mostly just [Paul Irish's dotfiles](https://github.com/paulirish/dotfiles) with 
 ...
 
 ### Cloning the repo
-Install your dotfiles onto a new system (or migrate to this setup)
+Install your dotfiles onto a new system (or migrate to this setup), [original instructions here](https://www.atlassian.com/git/tutorials/dotfiles)
 
 If you already store your configuration/dotfiles in a Git repository, on a new system you can migrate to this setup with the following steps:
 
