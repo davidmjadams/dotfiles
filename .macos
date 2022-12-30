@@ -33,6 +33,13 @@ sudo nvram SystemAudioVolume=" "
 # Disable transparency in the menu bar and elsewhere on Yosemite
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
+# Set computer name (as done via System Preferences → Sharing)
+test -z "$CI" &&
+	sudo scutil --set ComputerName "honcho"
+	sudo scutil --set HostName "honcho"
+	sudo scutil --set LocalHostName "honcho"
+	sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "honcho"
+
 # Menu bar: hide the Time Machine, Volume, and User icons
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
 	defaults write "${domain}" dontAutoLoad -array \
