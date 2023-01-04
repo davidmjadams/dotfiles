@@ -24,6 +24,7 @@ Movies/
 Music/
 Pictures/
 Public/
+.ssh/ 
 
 # Folder view configuration files
 .DS_Store
