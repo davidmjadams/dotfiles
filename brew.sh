@@ -27,7 +27,9 @@ brew install gnu-sed
 brew install bash
 brew install zsh
 
+# pimp zsh
 brew install antigen
+brew install pure
 
 brew install bash-completion@2
 

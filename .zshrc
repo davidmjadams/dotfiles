@@ -53,10 +53,9 @@ $b trapd00r/zsh-syntax-highlighting-filetypes
 
 # dont set a theme, because pure does it all
 $b mafredri/zsh-async
-$b sindresorhus/pure
 
 # Tell antigen that you're done.
-#antigen apply
+antigen apply
 
 ###
 #################################################################################################
@@ -77,11 +76,11 @@ auto-ls () {
 chpwd_functions=( auto-ls $chpwd_functions )
 
 # Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
+#zle-line-init() {
+#    zle autosuggest-start
+#}
 
-zle -N zle-line-init
+#zle -N zle-line-init
 
 
 # history mgmt
@@ -105,6 +104,6 @@ source ~/.bash_profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm
-export PNPM_HOME="/Users/david/Library/pnpm"
+export PNPM_HOME="/Users/$(whoami)/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end

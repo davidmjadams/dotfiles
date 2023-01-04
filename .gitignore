@@ -10,9 +10,15 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 # git credential file
 .gitconfig.local
 
+# zsh stuff
+.zsh_sessions
+.zsh_history
+.z
 
 # no thx
 node_modules
+.npm
+
 
 # System Folders
 .Trash/
@@ -43,3 +49,9 @@ Thumbs.db
 
 # random
 shilocation
+
+# config bits
+.cfg
+.antigen
+
+
