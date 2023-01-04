@@ -118,6 +118,25 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ###
 ##############################################################################################################
 
+##############################################################################################################
+### VSCode config
+###
+
+# setup symlinks to store settings in dotfiles
+ln -s /Users/$(whoami)/VSCode/settings.json /Users/$(whoami)/Library/Application\ Support/Code/User/settings.json
+ln -s /Users/$(whoami)/VSCode/keybindings.json /Users/$(whoami)/Library/Application\ Support/Code/User/keybindings.json
+ln -s /Users/$(whoami)/VSCode/snippets/ /Users/$(whoami)/Library/Application\ Support/Code/User
+
+
+# list vscode extensions, generate install list
+# code --list-extensions | xargs -L 1 echo code --install-extension
+
+# install plugins
+code --install-extension esbenp.prettier-vscode
+code --install-extension svelte.svelte-vscode
+
+###
+##############################################################################################################
 
 ##############################################################################################################
 ### remaining configuration

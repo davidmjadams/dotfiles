@@ -1,4 +1,4 @@
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # ~/.macos
 # paul's slight fork of https://mths.be/macos
@@ -312,8 +312,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 40 pixels
-defaults write com.apple.dock tilesize -int 40
+# Set the icon size of Dock items to 50 pixels
+defaults write com.apple.dock tilesize -int 50
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
