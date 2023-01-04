@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ~/.macos
-# paul's slight fork of https://mths.be/macos
+# david's slight fork of paul's slight fork of https://mths.be/macos
 
 
 # FWIW, this `defaults find` is good at finding some set preferences.
@@ -143,6 +143,9 @@ defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
+
+# Mouse: enable right-click
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true

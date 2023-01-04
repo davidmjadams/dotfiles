@@ -39,7 +39,6 @@ brew install wget
 
 # Install more recent versions of some OS X tools
 brew install vim
-brew install nano
 brew install grep
 brew install openssh
 
@@ -59,6 +58,10 @@ brew install shellcheck # linting for .sh files
 # Install other useful binaries
 brew install imagemagick
 brew install node # This installs `npm` too using the recommended installation method
+brew install podman
+
+# Ponchopay stuff
+brew tap heroku/brew && brew install heroku
 
 # json stuff
 brew install jq gron
