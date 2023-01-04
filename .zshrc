@@ -10,7 +10,7 @@ bindkey -v
 fpath=( "$HOME/.zfunctions" $fpath )
 
 # antigen time!
-source ~/code/antigen/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
 
 ######################################################################
 ### install some antigen bundles
@@ -103,3 +103,8 @@ source ~/.bash_profile
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/Users/david/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

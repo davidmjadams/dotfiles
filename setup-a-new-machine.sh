@@ -55,7 +55,7 @@ fi
 # maybe you still need an LD_LIBRARY export thing
 
 # install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install all the things
 ./brew.sh
@@ -81,6 +81,8 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 
 # use pnpm 
 npm i -g pnpm
+pnpm setup
+source /Users/david/.zshrc
 
 # Type `git open` to open the GitHub page or website for a repository.
 pnpm add -g git-open
@@ -114,6 +116,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ###
 ##############################################################################################################
 
+# Add default code location
+mkdir ~/Code 
 
 ##############################################################################################################
 ### remaining configuration

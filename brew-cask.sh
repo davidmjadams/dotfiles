@@ -11,6 +11,7 @@
 brew install --cask readdle-spark
 brew install --cask 1password
 brew install --cask brave-browser
+brew install --cask google-chrome
 brew install --cask slack
 brew install --cask cron
 brew install --cask figma
