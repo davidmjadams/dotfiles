@@ -54,6 +54,9 @@ fi
 # export PATH=$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH
 # maybe you still need an LD_LIBRARY export thing
 
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # install all the things
 ./brew.sh
 ./brew-cask.sh
