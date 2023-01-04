@@ -19,6 +19,7 @@ brew install --cask caffeine
 
 # dev
 brew install --cask visual-studio-code
+brew install --cask iterm2
 brew install --cask postman
 brew install --cask beekeeper-studio
 brew install --cask imageoptim
