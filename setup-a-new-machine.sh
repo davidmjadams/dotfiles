@@ -78,11 +78,13 @@ bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 # autocompletion for git branch names https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
+# Add default code location
+mkdir ~/code 
 
 # use pnpm 
 npm i -g pnpm
 pnpm setup
-source /Users/david/.zshrc
+source /Users/$(whoami)/.zshrc
 
 # Type `git open` to open the GitHub page or website for a repository.
 pnpm add -g git-open
@@ -116,8 +118,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ###
 ##############################################################################################################
 
-# Add default code location
-mkdir ~/Code 
 
 ##############################################################################################################
 ### remaining configuration

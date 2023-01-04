@@ -139,3 +139,6 @@
 	showPatch = true
 [log]
 	date = relative
+[user]
+	name = davidmjadams
+	email = davidmjadams@gmail.com

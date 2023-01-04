@@ -14,6 +14,17 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 # no thx
 node_modules
 
+# System Folders
+.Trash/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+
 # Folder view configuration files
 .DS_Store
 Desktop.ini
