@@ -7,21 +7,30 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 .vim/swaps/*
 .vim/undo
 
+# podman stuff
+.config/containers
+.local/
+
 # git credential file
 .gitconfig.local
 
-# zsh stuff
+# bash & zsh stuff
 .zsh_sessions
 .zsh_history
 .z
+.zshrc.zwc
+.bash_sessions/
+.bash_history
 
 # no thx
 node_modules
 .npm
+.vscode/
 
 
 # System Folders
 .Trash/
+code/
 Desktop/
 Documents/
 Downloads/
@@ -49,6 +58,8 @@ Thumbs.db
 
 # random
 shilocation
+.CFUserTextEncoding
+.lesshst
 
 # config bits
 .cfg
