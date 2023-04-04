@@ -1,0 +1,22 @@
+{
+  "workbench.colorTheme": "Default High Contrast",
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1680256210424,
+  "svelte.enable-ts-plugin": true,
+  "editor.tabSize": 2,
+  "editor.formatOnType": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

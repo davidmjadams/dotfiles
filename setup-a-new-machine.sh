@@ -81,6 +81,9 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 # Add default code location
 mkdir ~/code 
 
+# use nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
 # use pnpm 
 npm i -g pnpm
 pnpm setup
@@ -100,6 +103,9 @@ pnpm add --global diff-so-fancy
 
 # my preferred static webserver
 pnpm add -g httpster
+
+# gots to keep things pretty
+pnpm add -g prettier
 
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile

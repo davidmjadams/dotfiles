@@ -30,7 +30,6 @@ cdf() {  # short for cdfinder
 }
 
 
-
 # git commit browser. needs fzf
 log() {
   git log --graph --color=always \
@@ -58,7 +57,17 @@ cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
+# Open file in VSCode
+function vs() {
+  open $1 -a Visual\ Studio\ Code.app 
+}
 
+function resize() {
+	convert -resize $1 $2 ${3:=resized.jpg}
+	if [ $? -eq 1 ]; then
+		echo "\e[31m Invalid args, run it like: resize [HxW] [input.jpg] [output.jpg]"
+	fi
+}
 
 # get gzipped size
 function gz() {

@@ -59,6 +59,7 @@ brew install shellcheck # linting for .sh files
 brew install imagemagick
 brew install node # This installs `npm` too using the recommended installation method
 brew install podman
+brew install postgresql
 
 # Ponchopay stuff
 brew tap heroku/brew && brew install heroku

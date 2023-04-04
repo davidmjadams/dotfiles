@@ -75,12 +75,8 @@ alias emptytrash=" \
     rm -rv \"/Users/paulirish/Library/Application Support/stremio/stremio-cache\" \
 "
 
-# Open file in VSCode
-function vs() {
-  open $1 -a Visual\ Studio\ Code.app 
-}
-
 alias pp="cd ~/code/ponchopay"
+alias code="cd ~/code"
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
 alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"

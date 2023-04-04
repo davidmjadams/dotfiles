@@ -113,6 +113,7 @@
 [pull]
 	ff = only
 	default = current
+	rebase = true
 [checkout]
 	defaultRemote = origin
 

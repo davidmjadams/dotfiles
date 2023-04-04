@@ -17,13 +17,19 @@ brew install --cask cron
 brew install --cask figma
 brew install --cask alfred
 brew install --cask caffeine
+brew install --cask google-drive
 
 # dev
 brew install --cask visual-studio-code
 brew install --cask iterm2
+
+# install iterm command linne utilities
+curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
 brew install --cask postman
 brew install --cask beekeeper-studio
 brew install --cask imageoptim
+brew install --cask muzzle
 
 
 # less often
