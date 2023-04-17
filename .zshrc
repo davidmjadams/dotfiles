@@ -47,7 +47,7 @@ antigen bundle zsh-users/zsh-history-substring-search ./zsh-history-substring-se
 antigen bundle tarruda/zsh-autosuggestions
 
 # colors for all files!
-antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+# antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 # dont set a theme, because pure does it all
 antigen bundle mafredri/zsh-async

@@ -1,0 +1,6 @@
+active-context: poncho_semaphoreci_com
+contexts:
+  poncho_semaphoreci_com:
+    auth:
+      token: sUAc_uuF3_7tFxVQ_5yo
+    host: poncho.semaphoreci.com

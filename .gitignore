@@ -18,6 +18,8 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 .zsh_sessions
 .zsh_history
 .z
+.z.*
+.zcompdump
 .zshrc.zwc
 .bash_sessions/
 .bash_history
@@ -26,6 +28,9 @@ third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-
 node_modules
 .npm
 .vscode/
+.cache/
+.node/
+.sem.yaml
 
 
 # System Folders
