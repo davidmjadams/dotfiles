@@ -33,6 +33,7 @@ created manually and cannot exist before cloning the repo.
    ```bash
    git clone https://github.com/davidmjadams/dotfiles.git ~/dotfiles
    cd ~/dotfiles
+   chmod +x install
    ```
 
 2. Run the installer:

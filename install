@@ -1,4 +1,22 @@
 #!/usr/bin/env bash
 set -e
+
+# ------------------------------------------------------------------------------
+# Ensure Xcode Command Line Tools are installed
+# Required for git, homebrew, and compilation
+# ------------------------------------------------------------------------------
+
+if ! xcode-select -p >/dev/null 2>&1; then
+  echo "⚠️  Xcode Command Line Tools not found."
+  echo "Requesting installation…"
+  xcode-select --install
+
+  echo ""
+  echo "👉 Please complete the Command Line Tools installation,"
+  echo "👉 then re-run ./install"
+  echo ""
+  exit 1
+fi
+
 git submodule update --init --recursive
 ./dotbot/bin/dotbot -d "$PWD" -c install.conf.yaml
