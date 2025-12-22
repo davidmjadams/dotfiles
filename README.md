@@ -54,6 +54,11 @@ created manually and cannot exist before cloning the repo.
    git remote set-url origin git@github.com:davidmjadams/dotfiles.git
    ```
 
+5. Install 1password browser
+   ```bash
+   https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa?pli=1
+   ```
+
 From this point on, all GitHub access will use SSH.
 
 

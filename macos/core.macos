@@ -2,6 +2,8 @@
 osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
+mkdir ~/code
+
 MARKER="$HOME/.macos_computer_name_set"
 
 if [ ! -f "$MARKER" ]; then
@@ -40,5 +42,8 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# Enable Dark Mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
 killall Finder 2>/dev/null
 killall SystemUIServer 2>/dev/null

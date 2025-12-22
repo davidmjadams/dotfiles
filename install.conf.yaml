@@ -29,3 +29,5 @@
     - [bash macos/core.macos, Apply core macOS defaults]
     - [bash macos/input.macos, Apply input defaults]
     - [bash macos/dock.macos, Apply dock behaviour]
+    - [bash macos/dev.macos, Apply dev defaults]
+    

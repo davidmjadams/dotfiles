@@ -7,9 +7,11 @@ HISTSIZE=50000
 SAVEHIST=50000
 setopt HIST_IGNORE_ALL_DUPS INC_APPEND_HISTORY SHARE_HISTORY
 
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
+# Zsh history search with arrow keys
+autoload -Uz up-line-or-search down-line-or-search
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
 
 # Git tab completion (Homebrew)
 if [[ -f "$(brew --prefix)/share/zsh/site-functions/_git" ]]; then
@@ -46,5 +48,7 @@ export PATH="$PNPM_HOME:$PATH"
 
 export EDITOR=cursor
 export VISUAL=cursor
+
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 [[ -r ~/.extra ]] && source ~/.extra

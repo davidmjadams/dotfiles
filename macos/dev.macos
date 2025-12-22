@@ -1,0 +1,12 @@
+# Disable iTerm audible bell
+defaults write com.googlecode.iterm2 AudibleBell -bool false
+
+# Optional: disable visual bell too
+defaults write com.googlecode.iterm2 VisualBell -bool false
+
+
+# fnm (Fast Node Manager)
+eval "$(fnm env --use-on-cd)"
+
+fnm install --lts
+fnm default lts-latest

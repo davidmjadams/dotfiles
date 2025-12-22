@@ -32,7 +32,6 @@ dock_item() {
 # ------------------------------------------------------------------------------
 
 defaults write com.apple.dock persistent-apps -array \
-  "$(dock_item /System/Library/CoreServices/Finder.app)" \
   "$(dock_item /Applications/Spark\ Desktop.app)" \
   "$(dock_item /Applications/Slack.app)" \
   "$(dock_item /Applications/Notion\ Calendar.app)" \
