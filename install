@@ -19,6 +19,30 @@ if ! xcode-select -p >/dev/null 2>&1; then
 fi
 
 # ------------------------------------------------------------------------------
+# Bootstrap: Python + PyYAML (required by Dotbot)
+# ------------------------------------------------------------------------------
+
+PYTHON_BIN="$(command -v python3)"
+
+if [ -z "$PYTHON_BIN" ]; then
+  echo "❌ python3 not found."
+  echo "👉 This should not happen on modern macOS."
+  exit 1
+fi
+
+if ! "$PYTHON_BIN" - <<'EOF' >/dev/null 2>&1
+import yaml
+EOF
+then
+  echo "⚠️  PyYAML not found. Installing…"
+  "$PYTHON_BIN" -m pip install --user --upgrade pip
+  "$PYTHON_BIN" -m pip install --user pyyaml
+fi
+
+# Ensure user site-packages are on PATH (macOS-safe)
+export PATH="$HOME/Library/Python/3.*/bin:$PATH"
+
+# ------------------------------------------------------------------------------
 # Bootstrap: Dotbot
 # ------------------------------------------------------------------------------
 
