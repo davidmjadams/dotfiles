@@ -2,31 +2,26 @@
 set -e
 
 # ------------------------------------------------------------------------------
-# Ensure Xcode Command Line Tools are installed
-# Required for git, homebrew, and compilation
+# Ensure Xcode Command Line Tools
 # ------------------------------------------------------------------------------
 
 if ! xcode-select -p >/dev/null 2>&1; then
   echo "⚠️  Xcode Command Line Tools not found."
-  echo "Requesting installation…"
   xcode-select --install
-
-  echo ""
-  echo "👉 Please complete the Command Line Tools installation,"
-  echo "👉 then re-run ./install"
-  echo ""
+  echo "👉 Complete installation, then re-run ./install"
   exit 1
 fi
 
 # ------------------------------------------------------------------------------
-# Bootstrap: Homebrew
+# Bootstrap Homebrew (isolated from user git config)
 # ------------------------------------------------------------------------------
 
 if ! command -v brew >/dev/null 2>&1; then
   echo "⚠️  Homebrew not found. Installing…"
 
-  GIT_CONFIG_GLOBAL=/dev/null \
-  GIT_CONFIG_SYSTEM=/dev/null \
+  BOOTSTRAP_HOME="$(mktemp -d)"
+  export HOME="$BOOTSTRAP_HOME"
+
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   if [ -x /opt/homebrew/bin/brew ]; then
@@ -34,60 +29,38 @@ if ! command -v brew >/dev/null 2>&1; then
   elif [ -x /usr/local/bin/brew ]; then
     eval "$(/usr/local/bin/brew shellenv)"
   fi
+
+  # restore real HOME
+  export HOME="/Users/david"
 fi
 
-
-
 # ------------------------------------------------------------------------------
-# Bootstrap: Python + PyYAML (required by Dotbot)
+# Bootstrap Python + PyYAML (Dotbot dependency)
 # ------------------------------------------------------------------------------
 
-PYTHON_BIN="$(command -v python3)"
-
-if [ -z "$PYTHON_BIN" ]; then
-  echo "❌ python3 not found."
-  echo "👉 This should not happen on modern macOS."
-  exit 1
-fi
-
-if ! "$PYTHON_BIN" - <<'EOF' >/dev/null 2>&1
+if ! python3 - <<'EOF' >/dev/null 2>&1
 import yaml
 EOF
 then
-  echo "⚠️  PyYAML not found. Installing…"
-  "$PYTHON_BIN" -m pip install --user --upgrade pip
-  "$PYTHON_BIN" -m pip install --user pyyaml
+  echo "⚠️  Installing PyYAML"
+  python3 -m pip install --user pyyaml
 fi
 
-# Ensure user site-packages are on PATH (macOS-safe)
-export PATH="$HOME/Library/Python/3.*/bin:$PATH"
-
 # ------------------------------------------------------------------------------
-# Bootstrap: Dotbot
+# Bootstrap Dotbot
 # ------------------------------------------------------------------------------
 
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="$DOTBOT_DIR/bin/dotbot"
-DOTBOT_REPO="https://github.com/anishathalye/dotbot.git"
 
 if [ ! -x "$DOTBOT_BIN" ]; then
-  echo "⚠️  Dotbot not found. Bootstrapping…"
-
-  if [ ! -d "$DOTBOT_DIR" ]; then
-    git clone "$DOTBOT_REPO" "$DOTBOT_DIR"
-  else
-    echo "⚠️  dotbot directory exists but binary missing"
-    echo "👉 Please delete ./dotbot and re-run ./install"
-    exit 1
-  fi
+  echo "⚠️  Bootstrapping Dotbot"
+  git clone https://github.com/anishathalye/dotbot.git "$DOTBOT_DIR"
 fi
 
 # ------------------------------------------------------------------------------
-# Run Dotbot
+# Run Dotbot (single source of truth)
 # ------------------------------------------------------------------------------
 
 echo "✓ Running Dotbot"
 "$DOTBOT_BIN" -d "$PWD" -c install.conf.yaml
-
-git submodule update --init --recursive
-./dotbot/bin/dotbot -d "$PWD" -c install.conf.yaml
