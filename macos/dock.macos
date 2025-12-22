@@ -9,6 +9,10 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock expose-group-by-app -bool false
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.1
+
+
 
 # ------------------------------------------------------------------------------
 # Helper: create a Dock item plist entry
@@ -28,11 +32,11 @@ dock_item() {
 # ------------------------------------------------------------------------------
 
 defaults write com.apple.dock persistent-apps -array \
-  "$(dock_item /System/Applications/Finder.app)" \
+  "$(dock_item /System/Library/CoreServices/Finder.app)" \
   "$(dock_item /Applications/Spark\ Desktop.app)" \
   "$(dock_item /Applications/Slack.app)" \
   "$(dock_item /Applications/Notion\ Calendar.app)" \
-  "$(dock_item /Applications/The\ Browser\ Company/Dia.app)" \
+  "$(dock_item /Applications/Dia.app)" \
   "$(dock_item /Applications/Google\ Chrome.app)" \
   "$(dock_item /Applications/Figma.app)" \
   "$(dock_item /Applications/Cursor.app)" \
