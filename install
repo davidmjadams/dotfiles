@@ -18,5 +18,32 @@ if ! xcode-select -p >/dev/null 2>&1; then
   exit 1
 fi
 
+# ------------------------------------------------------------------------------
+# Bootstrap: Dotbot
+# ------------------------------------------------------------------------------
+
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="$DOTBOT_DIR/bin/dotbot"
+DOTBOT_REPO="https://github.com/anishathalye/dotbot.git"
+
+if [ ! -x "$DOTBOT_BIN" ]; then
+  echo "⚠️  Dotbot not found. Bootstrapping…"
+
+  if [ ! -d "$DOTBOT_DIR" ]; then
+    git clone "$DOTBOT_REPO" "$DOTBOT_DIR"
+  else
+    echo "⚠️  dotbot directory exists but binary missing"
+    echo "👉 Please delete ./dotbot and re-run ./install"
+    exit 1
+  fi
+fi
+
+# ------------------------------------------------------------------------------
+# Run Dotbot
+# ------------------------------------------------------------------------------
+
+echo "✓ Running Dotbot"
+"$DOTBOT_BIN" -d "$PWD" -c install.conf.yaml
+
 git submodule update --init --recursive
 ./dotbot/bin/dotbot -d "$PWD" -c install.conf.yaml
