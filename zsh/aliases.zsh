@@ -7,3 +7,5 @@ command -v bat >/dev/null && alias cat='bat'
 command -v rg >/dev/null && alias grep='rg'
 command -v fd >/dev/null && alias find='fd'
 alias p='pnpm'
+alias pp="cd ~/code/ponchopay"
+alias code="cd ~/code"
