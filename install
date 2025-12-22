@@ -66,3 +66,5 @@ fi
 
 echo "✓ Running Dotbot"
 "$DOTBOT_BIN" -d "$PWD" -c install.conf.yaml
+
+echo "✓ Installation complete, your mac is ready to go"
