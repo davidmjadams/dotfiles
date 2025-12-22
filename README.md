@@ -19,44 +19,41 @@ The goal is a setup that:
 
 ## Installation
 
-```bash
-git clone https://github.com/davidmjadams/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./install
-```
+## Bootstrap (first-time setup)
 
-Re-running `./install` is safe and expected.
+This repository is intentionally cloned over **HTTPS** on first install to avoid
+a chicken-and-egg problem with SSH keys.
 
-## SSH setup (manual, once per machine)
+SSH configuration is installed by these dotfiles, but SSH keys themselves must be
+created manually and cannot exist before cloning the repo.
 
-SSH configuration is installed automatically by Dotbot, but SSH keys are not.
+### First-time install on a new machine
 
-After running `./install`:
-
-1. Check for an existing SSH key:
+1. Clone the dotfiles repo via HTTPS:
    ```bash
-   ls ~/.ssh/id_*.pub
+   git clone https://github.com/davidmjadams/dotfiles.git ~/dotfiles
+   cd ~/dotfiles
    ```
 
-2. If no key exists, generate one:
+2. Run the installer:
+   ```bash
+   ./install
+   ```
+
+3. Set up SSH keys (once per machine):
    ```bash
    ssh-keygen -t ed25519 -C "your@email.com"
-   ```
-
-3. Add the key to the macOS keychain:
-   ```bash
    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-   ```
-
-4. Copy the public key and add it to GitHub:
-   ```bash
    pbcopy < ~/.ssh/id_ed25519.pub
    ```
+   Add the copied public key to GitHub.
 
-5. Verify the connection:
+4. Switch this repo to use SSH (recommended):
    ```bash
-   ssh -T git@github.com
+   git remote set-url origin git@github.com:davidmjadams/dotfiles.git
    ```
+
+From this point on, all GitHub access will use SSH.
 
 
 ---
