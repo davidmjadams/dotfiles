@@ -1,0 +1,50 @@
+[[ -r ~/.exports ]] && source ~/.exports
+[[ -r ~/.aliases ]] && source ~/.aliases
+[[ -r ~/.functions ]] && source ~/.functions
+
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt HIST_IGNORE_ALL_DUPS INC_APPEND_HISTORY SHARE_HISTORY
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+# Git tab completion (Homebrew)
+if [[ -f "$(brew --prefix)/share/zsh/site-functions/_git" ]]; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+
+autoload -Uz compinit && compinit
+
+# ------------------------------------------------------------------------------
+# Zsh autosuggestions
+# Inline, history-based command suggestions (grey text ahead of cursor).
+# Accept with →, word-by-word with Alt+→.
+# We restrict this to history only to avoid noisy or unsafe suggestions.
+# ------------------------------------------------------------------------------
+
+if [[ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+  # Subtle suggestion colour (doesn't fight syntax highlighting)
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
+
+  # Only suggest commands that actually exist in history
+  ZSH_AUTOSUGGEST_STRATEGY=(history)
+fi
+
+
+setopt AUTO_MENU
+
+command -v fnm >/dev/null && eval "$(fnm env --use-on-cd)"
+
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+export EDITOR=cursor
+export VISUAL=cursor
+
+[[ -r ~/.extra ]] && source ~/.extra

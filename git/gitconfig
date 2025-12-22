@@ -1,0 +1,143 @@
+[alias]
+	a = add
+	p = pull
+	fo = fetch origin
+	ci = commit -am
+	s = status
+	sclone = clone --depth=1
+	amend = commit --amend --all --no-edit
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	co = checkout
+
+	# Safer force push (modern Git best practice)
+	fpush = push --force-with-lease
+
+	df = diff --color --color-words --abbrev
+
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+	cherrypick = cherry-pick
+	cherry = cherry-pick
+	cp = cherry-pick
+
+	# Diff current branch against default branch (main/master)
+	diffbranch = !"git diff $(git merge-base HEAD origin/$(git config init.defaultBranch))"
+
+	# Show commit log of unique commits on this branch
+	diffcommitsfrommain = log --no-merges $(git config init.defaultBranch)..
+
+	# Unified diff of unique commits on this branch
+	difffrommain = diff $(git config init.defaultBranch)...
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	precomposeUnicode = true
+
+[pager]
+	diff = delta
+	show = delta
+	log = delta
+	reflog = delta
+
+[delta]
+	max-line-length = 700
+	max-line-distance = 0.3
+	syntax-theme = base16
+
+	file-decoration-style = yellow ol ul
+	file-style = bold yellow ul
+	hunk-header-decoration-style = blue
+	hunk-header-line-number-style = purple bold
+
+[interactive]
+	# diffFilter = delta --color-only
+
+[color]
+	ui = auto
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+	newMoved = cyan dim
+	oldMoved = blue dim
+	newMovedAlternative = cyan italic
+	oldMovedAlternative = blue italic
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[merge]
+	tool = opendiff
+	renameLimit = 0
+	conflictstyle = zdiff3
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[url "git://gist.github.com/"]
+	insteadOf = gist:
+
+[help]
+	autocorrect = 1
+
+[push]
+	default = current
+	followTags = true
+
+[pull]
+	ff = only
+	rebase = true
+	default = current
+
+[checkout]
+	defaultRemote = origin
+
+[init]
+	defaultBranch = main
+
+[include]
+	path = ~/.gitconfig.local
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[fetch]
+	prune = true
+
+[diff]
+	colorMoved = zebra
+
+[stash]
+	showPatch = true
+
+[log]
+	date = relative
+
+[user]
+	name = davidmjadams
+	email = davidmjadams@gmail.com

@@ -1,0 +1,13 @@
+# ~/.ssh/config
+# Main SSH configuration file.
+# This file is version-controlled via dotfiles.
+# Private keys are NOT stored in this repository.
+
+# Load per-host configuration files
+Include ~/.ssh/config.d/*
+
+# Sensible defaults for macOS
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentitiesOnly yes

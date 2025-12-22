@@ -1,0 +1,29 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.aliases: zsh/aliases.zsh
+    ~/.exports: zsh/exports.zsh
+    ~/.functions: zsh/functions.zsh
+    ~/.inputrc: inputrc
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+    ~/.config/nvim: config/nvim
+    ~/.extra: .extra
+    ~/.ssh/config:
+      path: ssh/config
+      create: true
+    ~/.ssh/config.d:
+      path: ssh/config.d
+      create: true
+
+- shell:
+    - [bash macos/core.macos, Apply core macOS defaults]
+    - [bash macos/input.macos, Apply input defaults]
+    - [bash macos/dock.macos, Apply dock behaviour]
+    - [brew bundle --file=~/dotfiles/Brewfile, Install Homebrew packages]
