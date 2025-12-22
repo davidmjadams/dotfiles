@@ -47,7 +47,7 @@ then
 fi
 
 # ------------------------------------------------------------------------------
-# Bootstrap Dotbot
+# Bootstrap Dotbot (ignore user git config until SSH exists)
 # ------------------------------------------------------------------------------
 
 DOTBOT_DIR="dotbot"
@@ -55,6 +55,8 @@ DOTBOT_BIN="$DOTBOT_DIR/bin/dotbot"
 
 if [ ! -x "$DOTBOT_BIN" ]; then
   echo "⚠️  Bootstrapping Dotbot"
+  GIT_CONFIG_GLOBAL=/dev/null \
+  GIT_CONFIG_SYSTEM=/dev/null \
   git clone https://github.com/anishathalye/dotbot.git "$DOTBOT_DIR"
 fi
 
