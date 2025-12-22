@@ -19,6 +19,24 @@ if ! xcode-select -p >/dev/null 2>&1; then
 fi
 
 # ------------------------------------------------------------------------------
+# Bootstrap: Homebrew
+# ------------------------------------------------------------------------------
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "⚠️  Homebrew not found. Installing…"
+
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Ensure brew is available in this shell
+  if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
+
+# ------------------------------------------------------------------------------
 # Bootstrap: Python + PyYAML (required by Dotbot)
 # ------------------------------------------------------------------------------
 
