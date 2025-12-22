@@ -14,7 +14,9 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.config/nvim: config/nvim
-    ~/.extra: .extra
+    ~/.extra:
+      path: .extra
+      if: "[ -f .extra ]"
     ~/.ssh/config:
       path: ssh/config
       create: true
@@ -23,7 +25,7 @@
       create: true
 
 - shell:
+    - [brew bundle --file=~/dotfiles/Brewfile, Install Homebrew packages]
     - [bash macos/core.macos, Apply core macOS defaults]
     - [bash macos/input.macos, Apply input defaults]
     - [bash macos/dock.macos, Apply dock behaviour]
-    - [brew bundle --file=~/dotfiles/Brewfile, Install Homebrew packages]

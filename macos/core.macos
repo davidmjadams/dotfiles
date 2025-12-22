@@ -3,16 +3,23 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
 MARKER="$HOME/.macos_computer_name_set"
+
 if [ ! -f "$MARKER" ]; then
-  read -p "Computer name (leave blank to skip): " COMPUTER_NAME
-  if [ -n "$COMPUTER_NAME" ]; then
-    sudo scutil --set ComputerName "$COMPUTER_NAME"
-    sudo scutil --set HostName "$COMPUTER_NAME"
-    sudo scutil --set LocalHostName "$COMPUTER_NAME"
-    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
-    touch "$MARKER"
+  if [ -e /dev/tty ]; then
+    read -p "Computer name (leave blank to skip): " COMPUTER_NAME </dev/tty
+
+    if [ -n "$COMPUTER_NAME" ]; then
+      sudo scutil --set ComputerName "$COMPUTER_NAME"
+      sudo scutil --set HostName "$COMPUTER_NAME"
+      sudo scutil --set LocalHostName "$COMPUTER_NAME"
+      sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
+      touch "$MARKER"
+    fi
+  else
+    echo "Skipping computer name setup (no TTY available)"
   fi
 fi
+
 
 defaults write NSGlobalDomain AppleHighlightColor -string "1.000000 0.252792 1.000000"
 defaults write NSGlobalDomain KeyRepeat -int 2

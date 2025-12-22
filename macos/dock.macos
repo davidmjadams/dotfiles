@@ -1,8 +1,56 @@
 #!/usr/bin/env bash
+set -e
+
+echo "Configuring Dock..."
+
 defaults write com.apple.dock tilesize -int 50
 defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock expose-group-by-app -bool false
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock autohide -bool true
+
+# ------------------------------------------------------------------------------
+# Helper: create a Dock item plist entry
+# ------------------------------------------------------------------------------
+
+dock_item() {
+  printf '%s%s%s%s%s' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict>' \
+    '<key>_CFURLString</key><string>' \
+    "$1" \
+    '</string><key>_CFURLStringType</key><integer>0</integer>' \
+    '</dict></dict></dict>'
+}
+
+# ------------------------------------------------------------------------------
+# Replace Dock app list entirely
+# ------------------------------------------------------------------------------
+
+defaults write com.apple.dock persistent-apps -array \
+  "$(dock_item /System/Applications/Finder.app)" \
+  "$(dock_item /Applications/Spark\ Desktop.app)" \
+  "$(dock_item /Applications/Slack.app)" \
+  "$(dock_item /Applications/Notion\ Calendar.app)" \
+  "$(dock_item /Applications/The\ Browser\ Company/Dia.app)" \
+  "$(dock_item /Applications/Google\ Chrome.app)" \
+  "$(dock_item /Applications/Figma.app)" \
+  "$(dock_item /Applications/Cursor.app)" \
+  "$(dock_item /Applications/Beekeeper\ Studio.app)" \
+  "$(dock_item /Applications/iTerm.app)" \
+  "$(dock_item /Applications/1Password.app)"
+
+# ------------------------------------------------------------------------------
+# Dock behaviour tweaks (safe defaults)
+# ------------------------------------------------------------------------------
+
+# Hide recent apps section
+defaults write com.apple.dock show-recents -bool false
+
+# Show running app indicators
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Restart Dock to apply changes
 killall Dock 2>/dev/null
+
+echo "Dock configuration complete."
