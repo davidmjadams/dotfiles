@@ -1,3 +1,5 @@
+Include /Users/david/.colima/ssh_config
+
 # ~/.ssh/config
 # Main SSH configuration file.
 # This file is version-controlled via dotfiles.
