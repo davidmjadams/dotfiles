@@ -37,6 +37,7 @@
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
 	precomposeUnicode = true
+	editor = nvim
 
 [pager]
 	diff = delta
